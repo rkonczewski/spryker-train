@@ -677,3 +677,23 @@ $config[AppCatalogGuiConstants::OAUTH_OPTION_AUDIENCE] = 'aop-atrs';
 $config[OauthClientConstants::OAUTH_PROVIDER_NAME_FOR_PAYMENT_AUTHORIZE] = OauthAuth0Config::PROVIDER_NAME;
 $config[OauthClientConstants::OAUTH_GRANT_TYPE_FOR_PAYMENT_AUTHORIZE] = OauthAuth0Config::GRANT_TYPE_CLIENT_CREDENTIALS;
 $config[OauthClientConstants::OAUTH_OPTION_AUDIENCE_FOR_PAYMENT_AUTHORIZE] = 'aop-app';
+
+$config[\Spryker\Shared\AppCatalogGui\AppCatalogGuiConstants::OAUTH_PROVIDER_NAME] = '\\Spryker\\Zed\\OauthAuth0\\OauthAuth0Config::PROVIDER_NAME';
+
+$config[\Spryker\Shared\AppCatalogGui\AppCatalogGuiConstants::OAUTH_GRANT_TYPE] = '\\Spryker\\Zed\\OauthAuth0\\OauthAuth0Config::GRANT_TYPE_CLIENT_CREDENTIALS';
+
+$config[\Spryker\Shared\AppCatalogGui\AppCatalogGuiConstants::OAUTH_OPTION_AUDIENCE] = 'aop-atrs';
+
+$config[\Spryker\Shared\Http\HttpConstants::URI_SIGNER_SECRET_KEY] = getenv('SPRYKER_URI_SIGNER_SECRET_KEY');
+
+$config[\Spryker\Shared\OauthClient\OauthClientConstants::OAUTH_PROVIDER_NAME_FOR_MESSAGE_BROKER] = '\\Spryker\\Zed\\OauthAuth0\\OauthAuth0Config::PROVIDER_NAME';
+
+$config[\Spryker\Shared\OauthClient\OauthClientConstants::OAUTH_GRANT_TYPE_FOR_MESSAGE_BROKER] = '\\Spryker\\Zed\\OauthAuth0\\OauthAuth0Config::GRANT_TYPE_CLIENT_CREDENTIALS';
+
+$config[\Spryker\Shared\OauthClient\OauthClientConstants::OAUTH_OPTION_AUDIENCE_FOR_MESSAGE_BROKER] = 'aop-event-platform';
+
+$config[\Spryker\Shared\Payment\PaymentConstants::OAUTH_PROVIDER_NAME_FOR_PAYMENT_AUTHORIZE] = '\\Spryker\\Zed\\OauthAuth0\\OauthAuth0Config::PROVIDER_NAME';
+
+$config[\Spryker\Shared\Payment\PaymentConstants::OAUTH_GRANT_TYPE_FOR_PAYMENT_AUTHORIZE] = '\\Spryker\\Zed\\OauthAuth0\\OauthAuth0Config::GRANT_TYPE_CLIENT_CREDENTIALS';
+
+$config[\Spryker\Shared\Payment\PaymentConstants::OAUTH_OPTION_AUDIENCE_FOR_PAYMENT_AUTHORIZE] = 'aop-app';
