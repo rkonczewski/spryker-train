@@ -9,7 +9,6 @@ namespace Pyz\Zed\Cart;
 
 use Spryker\Zed\AvailabilityCartConnector\Communication\Plugin\Cart\CheckAvailabilityPlugin;
 use Spryker\Zed\Cart\CartDependencyProvider as SprykerCartDependencyProvider;
-use Spryker\Zed\Cart\Communication\Plugin\Cart\GroupKeyWithCartIdentifierItemExpanderPlugin;
 use Spryker\Zed\Cart\Communication\Plugin\CleanUpItemsPreReloadPlugin;
 use Spryker\Zed\Cart\Communication\Plugin\SkuGroupKeyPlugin;
 use Spryker\Zed\ConfigurableBundle\Communication\Plugin\Cart\CartConfigurableBundlePreReloadPlugin;
@@ -25,7 +24,6 @@ use Spryker\Zed\DiscountPromotion\Communication\Plugin\Cart\DiscountPromotionCar
 use Spryker\Zed\GiftCard\Communication\Plugin\GiftCardMetadataExpanderPlugin;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\PaymentCartConnector\Communication\Plugin\Cart\RemovePaymentCartPostSavePlugin;
-use Spryker\Zed\PriceCartConnector\Communication\Plugin\Cart\SanitizeSourcePricesQuoteLockPreResetPlugin;
 use Spryker\Zed\PriceCartConnector\Communication\Plugin\CartItemPricePlugin;
 use Spryker\Zed\PriceCartConnector\Communication\Plugin\CartItemPricePreCheckPlugin;
 use Spryker\Zed\PriceCartConnector\Communication\Plugin\FilterItemsWithoutPricePlugin;
@@ -87,7 +85,6 @@ class CartDependencyProvider extends SprykerCartDependencyProvider
             new ConfiguredBundleGroupKeyItemExpanderPlugin(),
             new ProductUrlItemExpanderPlugin(),
             new SanitizeCartShipmentItemExpanderPlugin(),
-            new GroupKeyWithCartIdentifierItemExpanderPlugin(),
         ];
     }
 
@@ -209,15 +206,6 @@ class CartDependencyProvider extends SprykerCartDependencyProvider
         return [
             new DiscountQuoteChangeObserverPlugin(),
             new BundleItemPriceQuoteChangeObserverPlugin(),
-        ];
-    }
-    /**
-     * @return array<\Spryker\Zed\CartExtension\Dependency\Plugin\QuoteLockPreResetPluginInterface>
-     */
-    protected function getQuoteLockPreResetPlugins() : array
-    {
-        return [
-            new SanitizeSourcePricesQuoteLockPreResetPlugin(),
         ];
     }
 }

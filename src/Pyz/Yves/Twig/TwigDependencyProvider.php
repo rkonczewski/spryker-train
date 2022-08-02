@@ -20,7 +20,6 @@ use Spryker\Shared\Twig\Plugin\SecurityTwigPlugin;
 use Spryker\Yves\CmsContentWidget\Plugin\Twig\CmsContentWidgetTwigPlugin;
 use Spryker\Yves\Http\Plugin\Twig\HttpKernelTwigPlugin;
 use Spryker\Yves\Http\Plugin\Twig\RuntimeLoaderTwigPlugin;
-use Spryker\Yves\Money\Plugin\Twig\MoneyTwigPlugin;
 use Spryker\Yves\Translator\Plugin\Twig\TranslatorTwigPlugin;
 use Spryker\Yves\Twig\Plugin\FilesystemTwigLoaderPlugin;
 use Spryker\Yves\Twig\Plugin\FormFilesystemTwigLoaderPlugin;
@@ -86,7 +85,6 @@ class TwigDependencyProvider extends SprykerTwigDependencyProvider
             new FunctionTwigPlugin(),
             new ShopCmsSlotTwigPlugin(),
             new ContentNavigationTwigPlugin(),
-            new MoneyTwigPlugin(),
         ];
     }
 
