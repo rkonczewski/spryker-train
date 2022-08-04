@@ -115,8 +115,8 @@ require 'common/config_services-devvm.php';
 require 'common/config_logs-files.php';
 
 // >>> DATABASE
-$config[PropelConstants::ZED_DB_USERNAME] = 'development';
-$config[PropelConstants::ZED_DB_PASSWORD] = 'mate20mg';
+$config[PropelConstants::ZED_DB_USERNAME] = 'root';
+$config[PropelConstants::ZED_DB_PASSWORD] = 'secret';
 $config[PropelConstants::ZED_DB_DATABASE] = ''; // Specified in codebucket specific configs: config_default-development_*.php
 
 // >>> SESSION
