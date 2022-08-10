@@ -10,6 +10,11 @@ use Spryker\Zed\Gui\Communication\Table\TableConfiguration;
 class PlanetTable extends AbstractTable
 {
     /**
+     * @var string
+     */
+    public const ACTION = 'Actions';
+
+    /**
      * @var PyzPlanetQuery
      */
     private PyzPlanetQuery $planetQuery;
@@ -32,7 +37,9 @@ class PlanetTable extends AbstractTable
         $config->setHeader([
             PyzPlanetTableMap::COL_NAME => 'Planet name',
             PyzPlanetTableMap::COL_INTERESTING_FACT => 'Interesting fact',
+            static::ACTION => static::ACTION,
         ]);
+        $config->setRawColumns([PyzPlanetTableMap::class, static::ACTION]);
         $config->setSortable([
             PyzPlanetTableMap::COL_NAME,
             PyzPlanetTableMap::COL_INTERESTING_FACT,
@@ -56,10 +63,9 @@ class PlanetTable extends AbstractTable
         foreach ($planetDataItems as $planetDataItem) {
             $planetTableRows[] = [
                 PyzPlanetTableMap::COL_NAME => $planetDataItem[PyzPlanetTableMap::COL_NAME],
-                PyzPlanetTableMap::COL_INTERESTING_FACT => $planetDataItem[PyzPlanetTableMap::COL_INTERESTING_FACT]
+                PyzPlanetTableMap::COL_INTERESTING_FACT => $planetDataItem[PyzPlanetTableMap::COL_INTERESTING_FACT],
             ];
         }
         return $planetTableRows;
     }
-
 }
