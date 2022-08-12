@@ -16,6 +16,7 @@ class PlanetCommunicationFactory extends AbstractCommunicationFactory
 {
     /**
      * @return PlanetTable
+     * @throws ContainerKeyNotFoundException
      */
     public function createPlanetTable(): PlanetTable
     {
@@ -36,7 +37,7 @@ class PlanetCommunicationFactory extends AbstractCommunicationFactory
      * @param array $options
      * @return FormInterface
      */
-    public function createPlanetForm(?PlanetTransfer $planetTransfer = null, array $options = []): FormInterface
+    public function createPlanetForm(PlanetTransfer $planetTransfer = null, array $options = []): FormInterface
     {
         return $this->getFormFactory()->create(PlanetForm::class, $planetTransfer, $options);
     }
