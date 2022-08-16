@@ -20,4 +20,15 @@ class PlanetFacade extends AbstractFacade implements PlanetFacadeInterface
     {
         return $this->getFactory()->createPlanet()->createPlanetEntity($planetTransfer);
     }
+
+    /**
+     * @param int $idPlanet
+     * @return PlanetTransfer|null
+     */
+    public function findPlanetById(int $idPlanet): ?PlanetTransfer
+    {
+        return $this->getFactory()
+            ->createPlanetReader()
+            ->findPlanetById($idPlanet);
+    }
 }

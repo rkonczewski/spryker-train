@@ -3,7 +3,6 @@
 namespace Pyz\Zed\Planet\Communication;
 
 use Generated\Shared\Transfer\PlanetTransfer;
-use Orm\Zed\Planet\Persistence\Map\PyzPlanetTableMap;
 use Orm\Zed\Planet\Persistence\PyzPlanetQuery;
 use Pyz\Zed\Planet\Communication\Form\PlanetForm;
 use Pyz\Zed\Planet\Communication\Table\PlanetTable;

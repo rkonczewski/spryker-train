@@ -6,6 +6,7 @@ use Orm\Zed\Planet\Persistence\Map\PyzPlanetTableMap;
 use Orm\Zed\Planet\Persistence\PyzPlanetQuery;
 use Spryker\Zed\Gui\Communication\Table\AbstractTable;
 use Spryker\Zed\Gui\Communication\Table\TableConfiguration;
+use Spryker\Service\UtilText\Model\Url\Url;
 
 class PlanetTable extends AbstractTable
 {
@@ -37,9 +38,9 @@ class PlanetTable extends AbstractTable
         $config->setHeader([
             PyzPlanetTableMap::COL_NAME => 'Planet name',
             PyzPlanetTableMap::COL_INTERESTING_FACT => 'Interesting fact',
-            static::ACTION => static::ACTION,
+            static::ACTION => 'Actions',
         ]);
-        $config->setRawColumns([PyzPlanetTableMap::class, static::ACTION]);
+        $config->setRawColumns([static::ACTION]);
         $config->setSortable([
             PyzPlanetTableMap::COL_NAME,
             PyzPlanetTableMap::COL_INTERESTING_FACT,
@@ -64,6 +65,12 @@ class PlanetTable extends AbstractTable
             $planetTableRows[] = [
                 PyzPlanetTableMap::COL_NAME => $planetDataItem[PyzPlanetTableMap::COL_NAME],
                 PyzPlanetTableMap::COL_INTERESTING_FACT => $planetDataItem[PyzPlanetTableMap::COL_INTERESTING_FACT],
+                static::ACTION => $this->generateEditButton(
+                    Url::generate('/planet/edit/', [
+                        'id-planet' => $planetDataItem[PyzPlanetTableMap::COL_ID_PLANET],
+                    ]),
+                    'Edit'
+                )
             ];
         }
         return $planetTableRows;
