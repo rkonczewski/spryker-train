@@ -1,10 +1,10 @@
 <?php
 
-namespace Pyz\Zed\Planet\Persistence;
+namespace Pyz\Zed\Planet\Business\Reader;
 
 use Generated\Shared\Transfer\PlanetTransfer;
 
-interface PlanetRepositoryInterface
+interface PlanetReaderInterface
 {
     /**
      * @param $idPlanet
