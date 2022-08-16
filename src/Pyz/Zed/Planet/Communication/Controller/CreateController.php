@@ -19,17 +19,14 @@ class CreateController extends AbstractController
      */
     public function indexAction(Request $request)
     {
-        $planetForm = $this->getFactory()->createPlanetForm()->handleRequest($request);
+        $planetForm = $this->getFactory()
+            ->createPlanetForm()
+            ->handleRequest($request);
 
         if ($planetForm->isSubmitted() && $planetForm->isValid()) {
-            $formData[] = $planetForm->getData();
-
-            $planetTransfer = new PlanetTransfer();
-            $planetTransfer->fromArray($formData, true);
-
-            $planetTransfer = $this->getFacade()->createPlanetEntity($planetTransfer);
-
+            $this->getFacade()->createPlanetEntity($planetForm->getData());
             $this->addSuccessMessage('Planet was created successfully!');
+
             return $this->redirectResponse('/planet/list');
         }
         return $this->viewResponse([

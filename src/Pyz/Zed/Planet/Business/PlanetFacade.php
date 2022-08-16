@@ -7,7 +7,7 @@ use Spryker\Zed\Kernel\Business\AbstractFacade;
 
 /**
  * @method \Pyz\Zed\Planet\Business\PlanetBusinessFactory getFactory()
- * * @method \Pyz\Zed\Planet\Persistence\PlanetEntityManagerInterface getEntityManager()
+ * @method \Pyz\Zed\Planet\Persistence\PlanetEntityManagerInterface getEntityManager()
  * @method \Pyz\Zed\Planet\Persistence\PlanetRepositoryInterface getRepository()
  */
 class PlanetFacade extends AbstractFacade implements PlanetFacadeInterface
