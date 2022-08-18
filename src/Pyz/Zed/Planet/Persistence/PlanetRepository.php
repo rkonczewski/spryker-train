@@ -2,6 +2,7 @@
 
 namespace Pyz\Zed\Planet\Persistence;
 
+use Generated\Shared\Transfer\PlanetCollectionTransfer;
 use Generated\Shared\Transfer\PlanetTransfer;
 use Orm\Zed\Planet\Persistence\PyzPlanet;
 use Orm\Zed\Planet\Persistence\PyzPlanetQuery;
@@ -23,6 +24,32 @@ class PlanetRepository extends AbstractRepository implements PlanetRepositoryInt
     }
 
     /**
+     * @return PlanetCollectionTransfer
+     */
+    public function findAllPlanetCollection(): PlanetCollectionTransfer
+    {
+        $planetCollection = $this->createPyzPlanetQuery()->find();
+        $planetCollectionTransfer = new PlanetCollectionTransfer();
+
+        foreach ($planetCollection->getData() as $planetTransfer) {
+            $transfer = new PlanetTransfer();
+            $transfer->fromArray($planetTransfer->toArray());
+            $planetCollectionTransfer->addPlanet($transfer);
+        }
+
+        return $planetCollectionTransfer;
+
+//        $planetCollection = $this->createPyzPlanetQuery()->find();
+//
+//        foreach ($planetCollection as $planetTransfer) {
+//            $transfer = new PlanetCollectionTransfer();
+//            $transfer->fromArray($planetTransfer->toArray());
+//        }
+//
+//        return $planetCollection;
+    }
+
+    /**
      * @return PyzPlanetQuery
      */
     private function createPyzPlanetQuery(): PyzPlanetQuery
@@ -38,4 +65,5 @@ class PlanetRepository extends AbstractRepository implements PlanetRepositoryInt
     {
         return (new PlanetTransfer())->fromArray($planetEntity->toArray());
     }
+
 }
