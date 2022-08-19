@@ -3,10 +3,10 @@
 namespace Pyz\Zed\Planet\Persistence;
 
 use Generated\Shared\Transfer\PlanetTransfer;
-use Orm\Zed\Planet\Persistence\PyzPlanet;
 use Orm\Zed\Planet\Persistence\PyzPlanetQuery;
 use Propel\Runtime\Exception\PropelException;
 use Spryker\Zed\Kernel\Persistence\AbstractEntityManager;
+use Spryker\Zed\Propel\Business\Exception\AmbiguousComparisonException;
 
 /**
  * @method PlanetPersistenceFactory getFactory()
@@ -16,7 +16,7 @@ class PlanetEntityManager extends AbstractEntityManager implements PlanetEntityM
     /**
      * @param PlanetTransfer $planetTransfer
      * @return PlanetTransfer
-     * @throws PropelException
+     * @throws PropelException|AmbiguousComparisonException
      */
     public function savePlanetEntity(PlanetTransfer $planetTransfer): PlanetTransfer
     {
@@ -28,6 +28,20 @@ class PlanetEntityManager extends AbstractEntityManager implements PlanetEntityM
         $planetTransfer->fromArray($planetEntity->toArray());
 
         return $planetTransfer;
+    }
+
+    /**
+     * @param PlanetTransfer $planetTransfer
+     * @return void
+     * @throws AmbiguousComparisonException
+     * @throws PropelException
+     */
+    public function deletePlanetEntity(PlanetTransfer $planetTransfer): void
+    {
+        $planetEntity = $this
+            ->createPyzPlanetQuery()
+            ->filterByIdPlanet($planetTransfer->getIdPlanet());
+        $planetEntity->delete();
     }
 
     /**

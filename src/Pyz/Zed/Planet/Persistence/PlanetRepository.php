@@ -38,15 +38,6 @@ class PlanetRepository extends AbstractRepository implements PlanetRepositoryInt
         }
 
         return $planetCollectionTransfer;
-
-//        $planetCollection = $this->createPyzPlanetQuery()->find();
-//
-//        foreach ($planetCollection as $planetTransfer) {
-//            $transfer = new PlanetCollectionTransfer();
-//            $transfer->fromArray($planetTransfer->toArray());
-//        }
-//
-//        return $planetCollection;
     }
 
     /**
@@ -65,5 +56,4 @@ class PlanetRepository extends AbstractRepository implements PlanetRepositoryInt
     {
         return (new PlanetTransfer())->fromArray($planetEntity->toArray());
     }
-
 }

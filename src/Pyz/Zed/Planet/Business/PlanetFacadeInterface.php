@@ -17,4 +17,10 @@ interface PlanetFacadeInterface
      * @return PlanetCollectionTransfer
      */
     public function getAllPlanetEntity(): PlanetCollectionTransfer;
+
+    /**
+     * @param PlanetTransfer $planetTransfer
+     * @return mixed
+     */
+    public function deletePlanetEntity(PlanetTransfer $planetTransfer);
 }

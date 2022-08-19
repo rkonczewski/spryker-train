@@ -5,6 +5,8 @@ namespace Pyz\Zed\Planet\Business;
 use Generated\Shared\Transfer\PlanetTransfer;
 use Pyz\Zed\Planet\Business\Creator\PlanetCreator;
 use Pyz\Zed\Planet\Business\Creator\PlanetCreatorInterface;
+use Pyz\Zed\Planet\Business\Deleter\PlanetDeleter;
+use Pyz\Zed\Planet\Business\Deleter\PlanetDeleterInterface;
 use Pyz\Zed\Planet\Business\Reader\PlanetReader;
 use Pyz\Zed\Planet\Business\Reader\PlanetReaderInterface;
 use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
@@ -30,6 +32,14 @@ class PlanetBusinessFactory extends AbstractBusinessFactory
     public function createPlanetReader(): PlanetReaderInterface
     {
         return new PlanetReader($this->getRepository());
+    }
+
+    /**
+     * @return PlanetDeleterInterface
+     */
+    public function createPlanetDeleter(): PlanetDeleterInterface
+    {
+        return new PlanetDeleter($this->getEntityManager());
     }
 
     /**
