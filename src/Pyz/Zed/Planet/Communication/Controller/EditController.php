@@ -25,7 +25,7 @@ class EditController extends AbstractController
 
         if (empty($planet)) {
             $this->addErrorMessage('Error occurs. Please, try again.');
-            return $this->redirectResponse('planets/list');
+            return $this->redirectResponse('/planet/list');
         }
 
         $planetTransfer = (new PlanetTransfer())

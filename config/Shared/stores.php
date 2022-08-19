@@ -34,6 +34,7 @@ if (!empty(getenv('SPRYKER_ACTIVE_STORES'))) {
             // first entry is default
             'en' => 'en_US',
             'de' => 'de_DE',
+            'pl' => 'pl_PL',
         ],
         // first entry is default
         'countries' => ['DE', 'AT', 'NO', 'CH', 'ES', 'GB'],
@@ -47,40 +48,76 @@ if (!empty(getenv('SPRYKER_ACTIVE_STORES'))) {
     ];
 
     $templates['US'] = [
-        // different contexts
-        'contexts' => [
-            // shared settings for all contexts
-            '*' => [
-                'timezone' => 'America/Los_Angeles',
-                'dateFormat' => [
-                    // short date (11.14.12)
-                    'short' => 'm/d/Y',
-                    // medium Date (Feb 01. 2012)
-                    'medium' => 'M d. Y',
-                    // date formatted as described in RFC 2822
-                    'rfc' => 'r',
-                    'datetime' => 'Y-m-d H:i:s',
+            // different contexts
+            'contexts' => [
+                // shared settings for all contexts
+                '*' => [
+                    'timezone' => 'America/Los_Angeles',
+                    'dateFormat' => [
+                        // short date (11.14.12)
+                        'short' => 'm/d/Y',
+                        // medium Date (Feb 01. 2012)
+                        'medium' => 'M d. Y',
+                        // date formatted as described in RFC 2822
+                        'rfc' => 'r',
+                        'datetime' => 'Y-m-d H:i:s',
+                    ],
+                ],
+                // settings for contexts (overwrite shared)
+                'yves' => [],
+                'zed' => [
+                    'dateFormat' => [
+                        // short date (12-28-2012)
+                        'short' => 'm-d-Y',
+                    ],
                 ],
             ],
-            // settings for contexts (overwrite shared)
-            'yves' => [],
-            'zed' => [
-                'dateFormat' => [
-                    // short date (12-28-2012)
-                    'short' => 'm-d-Y',
-                ],
+            'locales' => [
+                // first entry is default
+                'en' => 'en_US',
             ],
-        ],
-        'locales' => [
             // first entry is default
-            'en' => 'en_US',
-        ],
-        // first entry is default
-        'countries' => ['US'],
-        // internal and shop
-        'currencyIsoCode' => 'USD',
-        'currencyIsoCodes' => ['USD'],
-    ] + $templates['default'];
+            'countries' => ['US'],
+            // internal and shop
+            'currencyIsoCode' => 'USD',
+            'currencyIsoCodes' => ['USD'],
+        ] + $templates['default'];
+
+    $templates['PL'] = [
+            // different contexts
+            'contexts' => [
+                // shared settings for all contexts
+                '*' => [
+                    'timezone' => 'Europe/Warsaw',
+                    'dateFormat' => [
+                        // short date (11.14.12)
+                        'short' => 'm/d/Y',
+                        // medium Date (Feb 01. 2012)
+                        'medium' => 'M d. Y',
+                        // date formatted as described in RFC 2822
+                        'rfc' => 'r',
+                        'datetime' => 'Y-m-d H:i:s',
+                    ],
+                ],
+                // settings for contexts (overwrite shared)
+                'yves' => [],
+                'zed' => [
+                    'dateFormat' => [
+                        // short date (12-28-2012)
+                        'short' => 'm-d-Y',
+                    ],
+                ],
+            ],
+            'locales' => [
+                // first entry is default
+                'pl' => 'pl_PL',
+            ],
+            // first entry is default
+            'countries' => ['PL'],
+            // internal and shop
+            'currencyIsoCode' => 'PLN',
+            'currencyIsoCodes' => ['PLN'],
+        ] + $templates['default'];
 
     foreach ($activeStores as $store) {
         $stores[$store] = $templates[$store] ?? $templates['default'];
@@ -178,6 +215,48 @@ $stores['US'] = [
     'queuePools' => [
         'synchronizationPool' => [
             'US-connection',
+        ],
+    ],
+    'storesWithSharedPersistence' => [],
+];
+
+$stores['PL'] = [
+    // different contexts
+    'contexts' => [
+        // shared settings for all contexts
+        '*' => [
+            'timezone' => 'Europe/Warsaw',
+            'dateFormat' => [
+                // short date (11.14.12)
+                'short' => 'm/d/Y',
+                // medium Date (Feb 01. 2012)
+                'medium' => 'M d. Y',
+                // date formatted as described in RFC 2822
+                'rfc' => 'r',
+                'datetime' => 'Y-m-d H:i:s',
+            ],
+        ],
+        // settings for contexts (overwrite shared)
+        'yves' => [],
+        'zed' => [
+            'dateFormat' => [
+                // short date (12-28-2012)
+                'short' => 'm-d-Y',
+            ],
+        ],
+    ],
+    'locales' => [
+        // first entry is default
+        'en' => 'en_US',
+    ],
+    // first entry is default
+    'countries' => ['PL'],
+    // internal and shop
+    'currencyIsoCode' => 'PLN',
+    'currencyIsoCodes' => ['PLN'],
+    'queuePools' => [
+        'synchronizationPool' => [
+            'PL-connection',
         ],
     ],
     'storesWithSharedPersistence' => [],

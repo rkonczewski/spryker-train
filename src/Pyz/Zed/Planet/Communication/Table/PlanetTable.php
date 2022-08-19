@@ -66,11 +66,19 @@ class PlanetTable extends AbstractTable
                 PyzPlanetTableMap::COL_NAME => $planetDataItem[PyzPlanetTableMap::COL_NAME],
                 PyzPlanetTableMap::COL_INTERESTING_FACT => $planetDataItem[PyzPlanetTableMap::COL_INTERESTING_FACT],
                 static::ACTION => $this->generateEditButton(
-                    Url::generate('/planet/edit/', [
-                        'id-planet' => $planetDataItem[PyzPlanetTableMap::COL_ID_PLANET],
-                    ]),
-                    'Edit'
-                )
+                        Url::generate('/planet/edit/', [
+                            'id-planet' => $planetDataItem[PyzPlanetTableMap::COL_ID_PLANET],
+                        ]),
+                        'Edit'
+                    ) . $this->generateRemoveButton(
+                        Url::generate(
+                            '/planet/delete',
+                            [
+                                'id-planet' => $planetDataItem[PyzPlanetTableMap::COL_ID_PLANET],
+                            ]
+                        ),
+                        'Delete'
+                    )
             ];
         }
         return $planetTableRows;
