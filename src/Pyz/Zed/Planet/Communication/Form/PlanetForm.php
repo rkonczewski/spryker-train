@@ -35,6 +35,7 @@ class PlanetForm extends AbstractType
 
     private const FIELD_NAME = 'name';
     private const FIELD_INTERESTING_FACT = 'interesting_fact';
+    private const FIELD_SIZE = 'size';
     public const BUTTON_SUBMIT = 'Submit';
 
     /**
@@ -46,6 +47,7 @@ class PlanetForm extends AbstractType
     {
         $this->addNameField($builder)
             ->addInterestingFactField($builder)
+            ->addSizeField($builder)
             ->addSubmitButton($builder);
     }
 
@@ -62,7 +64,7 @@ class PlanetForm extends AbstractType
                     'min' => 2,
                     'minMessage' => 'Name minimum length is at least {{ limit }}',
                     'max' => 50,
-                    'maxMessage' => 'Name maximum length is {{ 50 }}',
+                    'maxMessage' => 'Name maximum length is {{ limit }}',
                 ]),
             ]
         ]);
@@ -84,6 +86,26 @@ class PlanetForm extends AbstractType
                     'max' => 255,
                     'maxMessage' => 'Interesting fact maximum length is {{ limit }}',
                 ]),
+            ]
+        ]);
+        return $this;
+    }
+
+    /**
+     * @param FormBuilderInterface $builder
+     * @return PlanetForm
+     */
+    private function addSizeField(FormBuilderInterface $builder): PlanetForm
+    {
+        $builder->add(static::FIELD_SIZE, TextType::class, [
+            'constraints' => [
+                new NotBlank(),
+                new Length([
+                    'min' => 2,
+                    'minMessage' => 'Size minimum length is at least {{ limit }}',
+                    'max' => 50,
+                    'maxMessage' => 'Size maximum length is {{ limit }}',
+                ])
             ]
         ]);
         return $this;
