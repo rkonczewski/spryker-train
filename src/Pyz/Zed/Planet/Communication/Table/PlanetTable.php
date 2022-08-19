@@ -38,15 +38,18 @@ class PlanetTable extends AbstractTable
         $config->setHeader([
             PyzPlanetTableMap::COL_NAME => 'Planet name',
             PyzPlanetTableMap::COL_INTERESTING_FACT => 'Interesting fact',
+            PyzPlanetTableMap::COL_SIZE => 'Size',
             static::ACTION => 'Actions',
         ]);
         $config->setRawColumns([static::ACTION]);
         $config->setSortable([
             PyzPlanetTableMap::COL_NAME,
             PyzPlanetTableMap::COL_INTERESTING_FACT,
+            PyzPlanetTableMap::COL_SIZE,
         ]);
         $config->setSearchable([
             PyzPlanetTableMap::COL_NAME,
+            PyzPlanetTableMap::COL_SIZE,
         ]);
         return $config;
     }
@@ -65,6 +68,7 @@ class PlanetTable extends AbstractTable
             $planetTableRows[] = [
                 PyzPlanetTableMap::COL_NAME => $planetDataItem[PyzPlanetTableMap::COL_NAME],
                 PyzPlanetTableMap::COL_INTERESTING_FACT => $planetDataItem[PyzPlanetTableMap::COL_INTERESTING_FACT],
+                PyzPlanetTableMap::COL_SIZE => $planetDataItem[PyzPlanetTableMap::COL_SIZE],
                 static::ACTION => $this->generateEditButton(
                         Url::generate('/planet/edit/', [
                             'id-planet' => $planetDataItem[PyzPlanetTableMap::COL_ID_PLANET],

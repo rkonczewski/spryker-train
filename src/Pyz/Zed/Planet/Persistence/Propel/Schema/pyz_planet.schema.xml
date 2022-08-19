@@ -11,5 +11,7 @@
                 size="50"/>
         <column name="interesting_fact" type="VARCHAR"
                 size="255"/>
+        <column name="size" required="false" type="VARCHAR"
+                size="50"/>
     </table>
 </database>
