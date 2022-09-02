@@ -13,5 +13,9 @@
                 size="255"/>
         <column name="size" required="false" type="VARCHAR"
                 size="50"/>
+        <behavior name="event">
+            <parameter name="pyz_planet_all" column="*"/>
+        </behavior>
+
     </table>
 </database>
