@@ -1,1 +1,1 @@
-{"version":1,"defects":{"PyzTest\\Zed\\StringReverser\\Business\\StringReverserFacadeTest::testStringIsReversedCorrectly":4},"times":{"PyzTest\\Zed\\StringReverser\\Business\\StringReverserFacadeTest::testStringIsReversedCorrectly":0.001}}
+{"version":1,"defects":{"PyzTest\\Zed\\StringReverser\\Business\\StringReverserFacadeTest::testStringIsReversedCorrectly":4},"times":{"PyzTest\\Zed\\StringReverser\\Business\\StringReverserFacadeTest::testStringIsReversedCorrectly":0.007}}

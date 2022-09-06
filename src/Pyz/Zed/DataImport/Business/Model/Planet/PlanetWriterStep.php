@@ -14,7 +14,7 @@ class PlanetWriterStep extends PublishAwareStep implements DataImportStepInterfa
 {
 
     public const KEY_NAME = 'name';
-    public const KEY_INTERESTING_FACTS = 'interesting_facts';
+    public const KEY_INTERESTING_FACTS = 'interesting_fact';
     public const KEY_SIZE = 'size';
 
     /**

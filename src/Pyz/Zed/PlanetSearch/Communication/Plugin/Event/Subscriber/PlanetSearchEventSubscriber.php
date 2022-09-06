@@ -3,13 +3,13 @@
 namespace Pyz\Zed\PlanetSearch\Communication\Plugin\Event\Subscriber;
 
 use Pyz\Zed\Planet\Dependency\PlanetEvents;
-use Pyz\Zed\PlanetSearch\Communication\Plugin\PlanetSearchListener;
+use Pyz\Zed\PlanetSearch\Communication\Plugin\Event\Listener\PlanetSearchListener;
 use Spryker\Zed\Event\Dependency\EventCollectionInterface;
 use Spryker\Zed\Event\Dependency\Plugin\EventSubscriberInterface;
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 
 /**
- * @method \Pyz\Zed\PlanetSearch\Business\PlanetSearchBusinessFacadeInterface getFacade()
+ * @method \Pyz\Zed\PlanetSearch\Business\PlanetSearchFacadeInterface getFacade()
  */
 class PlanetSearchEventSubscriber extends AbstractPlugin implements EventSubscriberInterface
 {
