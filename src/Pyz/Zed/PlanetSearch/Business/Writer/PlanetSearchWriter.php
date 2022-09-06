@@ -2,13 +2,13 @@
 
 namespace Pyz\Zed\PlanetSearch\Business\Writer;
 
-use Generated\Shared\Transfer\PlaneTransfer;
+use Generated\Shared\Transfer\PlanetTransfer;
 use Orm\Zed\Planet\Persistence\PyzPlanetQuery;
 use Orm\Zed\PlanetSearch\Persistence\PyzPlanetSearchQuery;
 use Propel\Runtime\Exception\PropelException;
 use Spryker\Zed\Propel\Business\Exception\AmbiguousComparisonException;
 
-class PlanetSearchWriter
+class PlanetSearchWriter implements PlanetSearchWriterInterface
 {
     /**
      * @param int $idPlanet
@@ -19,14 +19,14 @@ class PlanetSearchWriter
     public function publish(int $idPlanet): void
     {
         $planetEntity = PyzPlanetQuery::create()
-            ->filterByIdPlanet()
+            ->filterByIdPlanet($idPlanet)
             ->findOne();
 
-        $planetTransfer = new PlaneTransfer();
+        $planetTransfer = new PlanetTransfer();
         $planetTransfer->fromArray($planetEntity->toArray());
 
         $searchEntity = PyzPlanetSearchQuery::create()
-            ->filterByFkPlanet()
+            ->filterByFkPlanet($idPlanet)
             ->findOneOrCreate();
         $searchEntity->setFkPlanet($idPlanet);
         $searchEntity->setData($planetTransfer->toArray());

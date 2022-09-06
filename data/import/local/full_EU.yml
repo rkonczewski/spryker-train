@@ -192,5 +192,5 @@ actions:
 
 
     #7. Custom importer
-    -   data entity: mime-type
+    -   data_entity: planet
         source: data/import/local/common/planet.csv

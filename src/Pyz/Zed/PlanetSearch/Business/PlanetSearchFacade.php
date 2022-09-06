@@ -9,7 +9,7 @@ use Spryker\Zed\Propel\Business\Exception\AmbiguousComparisonException;
 /**
  * @method \Pyz\Zed\PlanetSearch\Business\PlanetSearchBusinessFactory getFactory()
  */
-class PlanetSearchBusinessFacade extends AbstractFacade implements PlanetSearchBusinessFacadeInterface
+class PlanetSearchFacade extends AbstractFacade implements PlanetSearchFacadeInterface
 {
     /**
      * @param int $idPlanet

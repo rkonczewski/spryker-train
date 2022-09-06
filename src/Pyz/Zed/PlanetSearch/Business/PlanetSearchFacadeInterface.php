@@ -2,7 +2,7 @@
 
 namespace Pyz\Zed\PlanetSearch\Business;
 
-interface PlanetSearchBusinessFacadeInterface
+interface PlanetSearchFacadeInterface
 {
     /**
      * @param int $idPlanet
