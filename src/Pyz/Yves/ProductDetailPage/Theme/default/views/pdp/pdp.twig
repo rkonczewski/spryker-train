@@ -125,6 +125,13 @@
             {% endblock %}
         {% endembed %}
     </div>
+
+    {% widget 'PlanetWidget' args ['mercury'] only %}
+    {% nowidget %}
+        <h1>Nothing to see here!</h1>
+    {% endwidget %}
+
+
 {% endblock %}
 
 {% block footerScripts %}
